@@ -349,7 +349,7 @@ class GameWindow(pyglet.window.Window):
         # and then rendering the updated game using
         self.fps = 20 #Number of frames per seconds
 
-        #This tells Pyglet to call Window.update() once every fps-th of a second
+        #This tells Pyglet to call GameWindow.update() once every fps-th of a second
         pyglet.clock.schedule_interval(self.update, 1.0/self.fps)
         pyglet.clock.set_fps_limit(self.fps)
 
