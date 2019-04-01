@@ -6,7 +6,6 @@ import math
 
 debug = True
 
-
 def as_cartesian(velocity,angle):
     if angle is None:
         return 0,0
@@ -90,7 +89,18 @@ class EndLine(BallDeflector):
 
 class Brick(BallDeflector):
 
-    pass
+    bricks_removed = 0
+
+    def deflect_ball(self, ball, side_hit):
+        super().deflect_ball(ball, side_hit)
+        #BallDeflector.deflect_ball(self, ball, side_hit)
+        #print("deflected")
+        #print(self)
+        self.game.game_objects.remove(self)
+        Brick.bricks_removed += 1
+        print(Brick.bricks_removed)
+
+
 
 class Ball(GameObject):
 
@@ -98,6 +108,7 @@ class Ball(GameObject):
 
     def update(self,pressed_keys):
         self.move()
+        self.velocity = self.default_velocity * (1 + Brick.bricks_removed // 10)
         if self.in_play:
             for game_object in self.game.game_objects:
                 side_hit = self.colliding_with(game_object)
@@ -115,7 +126,7 @@ class Ball(GameObject):
         Generate a random angle that isn't too close to straight up and down or straight side to side
         :return: an angle in degrees
         '''
-        angle = random.randint(15,75)+90*random.randint(0,3)
+        angle = random.randint(10, 75)
         debug_print('Starting ball angle: ' + str(angle) + ' degrees')
         return angle
 
@@ -263,6 +274,8 @@ class Game(object):
             Paddle(player = 1,
                     up_key=pyglet.window.key.W,
                     down_key=pyglet.window.key.S,
+                    right_key = pyglet.window.key.D,
+                    left_key = pyglet.window.key.A,
                     name ='Player 1',
                     img_file = paddle_imgs[0],
                     initial_x= self.side_paddle_buffer + paddle_width/2,
@@ -286,7 +299,7 @@ class Game(object):
                 initial_y = self.height - wall_width,
                 img_file = wall_imgs[1],
                 game = self),
-            EndLine(initial_x = 0, #left
+            EndLine(initial_x = 0, #left changed this from EndLine because I didn't want the game to start over again
                 initial_y = 0,
                 img_file = wall_imgs[0],
                 game = self),
@@ -316,7 +329,7 @@ class Game(object):
             x += (brick_height + 1)
 
 
-        self.game_objects = self.walls + self.bricks + self.paddles + self.balls + self.bricks
+        self.game_objects = self.walls + self.bricks + self.paddles + self.balls
 
     def update(self,pressed_keys):
         '''
