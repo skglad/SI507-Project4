@@ -28,11 +28,11 @@ python3 basepong_2.py
 This will initialize the window and start the game.
 
 <h2>Playing the Game</h2>
-To play the game, you will need to move the paddle up and down in order to block the ball from hitting the end wall so that the ball can remove all of the bricks.
-
-To move the paddle up, you press the "w" button your keyboard.
-To move the paddle down, you press the "s" button your keyboard.
-To pause the game, press the "p" button on your keyboard (to unpause press "p" again)
-To exit the game, press "q" or "escape" on your keyboard.
-
+To play the game, you will need to move the paddle up and down in order to block the ball from hitting the end wall so that the ball can remove all of the bricks.<br>
+<br>
+To move the paddle up, you press the "w" button your keyboard.<br>
+To move the paddle down, you press the "s" button your keyboard.<br>
+To pause the game, press the "p" button on your keyboard (to unpause press "p" again)<br>
+To exit the game, press "q" or "escape" on your keyboard.<br>
+<br>
 The goal is to keep the ball from hitting the side wall 3 times, while removing all of the bricks from the wall. If you hit the left-side wall 3 times, the game will quit and you will lose.
