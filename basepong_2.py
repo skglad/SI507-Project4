@@ -71,21 +71,28 @@ class BallDeflector(GameObject):
         while ball.colliding_with(self):
             ball.move()
             if (ball.x < 0) or (ball.y < 0):
-                foobar
+                self.game.reset()
 
 class EndLine(BallDeflector):
+    wall_hits = 0
 
     def deflect_ball(self, ball, side_hit):
-        print("hit an endline")
-        if side_hit == 'LEFT':
+        print("hit an endline: {}".format(EndLine.wall_hits))
+        if side_hit == 'RIGHT':
             # ball approached from the left to right wall
-            self.game.reset()
-        elif side_hit == 'RIGHT':
+            #self.game.reset()
+            ball.angle = (180-ball.angle) % 360
+            EndLine.wall_hits += 1
+            if EndLine.wall_hits > 2:
+                self.game.end_game()
+        elif side_hit == 'LEFT':
             # ball approached from the right
-            self.game.reset()
+            #self.game.reset()
+            ball.angle = (180-ball.angle) % 360
         else:
             # Shouldn't happen. Must have miscalculated which side was hit, since this is an endline
             raise Exception(side_hit)
+        #self.shunt(ball)
 
 class Brick(BallDeflector):
 
@@ -98,7 +105,7 @@ class Brick(BallDeflector):
         #print(self)
         self.game.game_objects.remove(self)
         Brick.bricks_removed += 1
-        print(Brick.bricks_removed)
+        print("Total count - Bricks removed {}".format(Brick.bricks_removed))
 
 
 
@@ -108,7 +115,7 @@ class Ball(GameObject):
 
     def update(self,pressed_keys):
         self.move()
-        self.velocity = self.default_velocity * (1 + Brick.bricks_removed // 10)
+        self.velocity = self.default_velocity * (1 + (Brick.bricks_removed // 10) + (.5 * EndLine.wall_hits))
         if self.in_play:
             for game_object in self.game.game_objects:
                 side_hit = self.colliding_with(game_object)
@@ -357,6 +364,10 @@ class Game(object):
         if pause:
             debug_print('Pausing. Hit P to unpause')
             self.game_window.pause()
+
+    def end_game(self):
+        pyglet.app.exit()
+        print("GAME OVER")
 
     def draw(self):
         for game_object in self.game_objects:
