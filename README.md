@@ -1,8 +1,9 @@
-<h2>Brick Breaker Type Game</h2>
+<h2>Project 4 - Option 2: Brick Breaker Type Game</h2>
+Edits and additions by Sara Gladchun
 
-Files included in this repo: 
+Files included in this repo:
 * README document
-* "basepong.py" - python program for the game
+* "SI507_project4.py" - python program for the game
 * images needed for this game: "ball.png, brick.png, cruved_paddle1.png, curved_paddle2.png, horizontal_wall.png, paddle.png, paddle1.png, paddle2.png, vertical_wall.png, and white_square.png"
 * "requirements.txt" - requirements for virtual environment
 * "basepong_additions_1.py" - examples from class (please ignore)
