@@ -26,7 +26,7 @@ According to the tasks set out for us in project 4, I have changed some of the f
 The creative feature that I've added is:
 
 * every time the left-hand wall is hit, the velocity of the ball increases (but not as much as if the ball hits 10 bricks)
-* if the left-hand wall is hit 3 times, then the game will end (player loses) -- (Note: this results in me keeping the left-side wall as the class EndLine, rather than changing it to BallDeflector as directed in the tasks.md for project 4 requirements, but this is part of my "creative" addition to the game and I spoke with Jackie about keeping this, thank you!)
+* if the left-hand wall is hit 3 times, then the game will end (player loses) -- (Note: this results in me keeping the left-side wall as the class EndLine, rather than changing it to BallDeflector as directed in the tasks.md for project 4 requirements. The wall still deflects the ball, as directed, but there is another features to that that ends the game and this is part of my "creative" addition to the game and I spoke with Jackie about keeping the wall as "EndLine", thank you!)
 
 <h2>Running The Game</h2>
 
