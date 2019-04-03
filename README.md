@@ -2,12 +2,12 @@
 
 <h4>Files included:</h4>
 This repo includes:<br>
-* README.md - this readme document
-* basepong.py - python program for the game
-* images needed for this game: ball.png, brick.png, cruved_paddle1.png, curved_paddle2.png, horizontal_wall.png, paddle.png, paddle1.png, paddle2.png, vertical_wall.png, and white_square.png
-* requirements.txt - requirements for virtual environment
-* basepong_additions_1.py - examples from class (please ignore)
-* basepong_additions_2.py - examples for class (please ignore)
+* "README.md" - this readme document
+* "basepong.py" - python program for the game
+* images needed for this game: "ball.png, brick.png, cruved_paddle1.png, curved_paddle2.png, horizontal_wall.png, paddle.png, paddle1.png, paddle2.png, vertical_wall.png, and white_square.png"
+* "requirements.txt" - requirements for virtual environment
+* "basepong_additions_1.py" - examples from class (please ignore)
+* "basepong_additions_2.py" - examples for class (please ignore)
 
 <h2>Overview</h2>
 I have created a brick breaker type game from the pong game code that we used in class.
