@@ -1,7 +1,7 @@
 <h2>Brick Breaker Type Game</h2>
 
 <h4>Files included:</h4>
-This repo includes:
+This repo includes:<br>
 * README.md - this readme document
 * basepong.py - python program for the game
 * images needed for this game: ball.png, brick.png, cruved_paddle1.png, curved_paddle2.png, horizontal_wall.png, paddle.png, paddle1.png, paddle2.png, vertical_wall.png, and white_square.png
